@@ -1,0 +1,6 @@
+FROM clojure:latest
+WORKDIR /usr/src/app
+RUN mkdir -p /root/.lein
+COPY docker/profiles.clj /root/.lein
+RUN mkdir -p /usr/src && lein new hello && cd hello && lein deps
+CMD lein repl :headless :host 0.0.0.0 :port $REPL_PORT

@@ -1,0 +1,11 @@
+version: "2"
+services:
+  repl:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile_repl
+    env_file: .env
+    ports:
+      - "4343:4343"
+    volumes:
+      - .:/usr/src/app
